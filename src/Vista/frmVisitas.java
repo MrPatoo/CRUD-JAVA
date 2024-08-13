@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import Controlador.ctrlVisitas;
+import Modelo.Visitas;
+
 /**
  *
  * @author Estudiante
@@ -16,6 +19,26 @@ public class frmVisitas extends javax.swing.JFrame {
     public frmVisitas() {
         initComponents();
     }
+    
+    
+    
+    //
+   
+    public static void initVisitas(){
+        Visitas modelo = new Visitas();
+        frmVisitas vista = new frmVisitas();
+        ctrlVisitas Controlador = new ctrlVisitas(modelo, vista);
+        
+        vista.setVisible(true);
+        
+        
+        
+    }
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,20 +51,20 @@ public class frmVisitas extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtEspecialidad = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
+        txtEdad = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        btnLimpiar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        txtNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtbPaciente = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,9 +73,15 @@ public class frmVisitas extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("Crud Enfermeria Ricaldone");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 430, 50));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 430, 50));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 430, 50));
+        jPanel2.add(txtEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 430, 50));
+        jPanel2.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 430, 50));
+
+        txtEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEdadActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 430, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Especialidad");
@@ -66,38 +95,38 @@ public class frmVisitas extends javax.swing.JFrame {
         jLabel4.setText("Edad");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
 
-        jButton1.setText("Limpiar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, -1, -1));
+        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, -1, -1));
 
-        jButton5.setText("Agregar");
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
+        btnAgregar.setText("Agregar");
+        jPanel2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
 
-        jButton6.setText("Actualizar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
+        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
 
-        jButton7.setText("Eliminar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, -1, -1));
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, -1, -1));
 
-        jButton2.setText("Buscar");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 80, 50));
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 430, 50));
+        btnBuscar.setText("Buscar");
+        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 80, 50));
+        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 430, 50));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtbPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -108,9 +137,9 @@ public class frmVisitas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtbPaciente);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 550, 450, 160));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 530, 610, 180));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,17 +155,21 @@ public class frmVisitas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEdadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,21 +207,21 @@ public class frmVisitas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    public javax.swing.JButton btnActualizar;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    public javax.swing.JTable jtbPaciente;
+    public javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtEdad;
+    public javax.swing.JTextField txtEspecialidad;
+    public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
