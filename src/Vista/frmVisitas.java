@@ -27,12 +27,9 @@ public class frmVisitas extends javax.swing.JFrame {
     public static void initVisitas(){
         Visitas modelo = new Visitas();
         frmVisitas vista = new frmVisitas();
-        ctrlVisitas Controlador = new ctrlVisitas(modelo, vista);
+        ctrlVisitas controlador = new ctrlVisitas(modelo, vista);
         
         vista.setVisible(true);
-        
-        
-        
     }
     
     

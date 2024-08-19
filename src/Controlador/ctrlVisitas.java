@@ -4,7 +4,6 @@ import Modelo.Visitas;
 import Vista.frmVisitas;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.HashSet;
 
 //heredarde la clase que detecta las acciones
 public class ctrlVisitas implements MouseListener{
@@ -17,10 +16,10 @@ public class ctrlVisitas implements MouseListener{
     //2. crear constructor
     public ctrlVisitas (Visitas modelo, frmVisitas Vista){
         this.modelo = modelo;
-        this.vista = vista;
-        
-        vista.btnAgregar.addMouseListener(this);
-        
+        this.vista = Vista;
+       
+         vista.btnAgregar.addMouseListener(this);
+        modelo.Mostrar(vista.jtbPaciente);
     }
 
     @Override
@@ -32,7 +31,7 @@ public class ctrlVisitas implements MouseListener{
             modelo.setEspecialidad(vista.txtEspecialidad.getName());
             
             modelo.Guardar();
-            
+            modelo.Mostrar(vista.jtbPaciente);
         }
         
     }
