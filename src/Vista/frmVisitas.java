@@ -18,6 +18,7 @@ public class frmVisitas extends javax.swing.JFrame {
      */
     public frmVisitas() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
     
     
